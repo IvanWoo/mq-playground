@@ -1,5 +1,15 @@
 # mq-playground <!-- omit in toc -->
 
+- [prerequisites](#prerequisites)
+- [setup](#setup)
+  - [namespace](#namespace)
+  - [rabbitmq](#rabbitmq)
+  - [redis](#redis)
+- [playground](#playground)
+  - [python celery](#python-celery)
+- [cleanup](#cleanup)
+- [references](#references)
+
 ## prerequisites
 
 - [Rancher Desktop](https://github.com/rancher-sandbox/rancher-desktop): `1.8.1`
