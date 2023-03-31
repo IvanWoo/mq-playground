@@ -1,0 +1,14 @@
+[tool.pdm]
+
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Yifan Wu", email = "tyivanwu@gmail.com"},
+]
+dependencies = [
+    "celery[redis]>=5.2.7",
+]
+requires-python = ">=3.9"
+license = {text = "MIT"}
