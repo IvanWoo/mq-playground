@@ -10,8 +10,13 @@ task_acks_late = True
 task_serializer = 'json'
 result_expires = 3600
 result_serializer = 'json'
-worker_prefetch_multiplier=1
-worker_concurrency=1
+# worker_prefetch_multiplier=1
+# worker_concurrency=1
 
 accept_content = ['json']
 enable_utc = True
+
+task_routes = {
+    'proj.tasks.*': {'queue': 'default'},
+    'proj.tasks.slow_add': {'queue': 'slow'},
+}

@@ -98,7 +98,8 @@ pdm run python producer.py
 start the celery workers
 
 ```sh
-pdm run celery -A proj worker -l INFO
+pdm run celery -A proj worker -l INFO -Q default
+pdm run celery -A proj worker -l INFO -Q slow --prefetch-multiplier=1 --concurrency=1
 ```
 
 start the flower monitoring
