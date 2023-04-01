@@ -7,6 +7,10 @@
   - [redis](#redis)
 - [playground](#playground)
   - [python celery](#python-celery)
+    - [publish messages](#publish-messages)
+    - [workers](#workers)
+    - [monitor](#monitor)
+    - [restart](#restart)
 - [cleanup](#cleanup)
 - [references](#references)
 
@@ -87,7 +91,7 @@ kubectl port-forward --namespace mq svc/mq-redis-master 6379:6379
 
 ### python celery
 
-publish messages
+#### publish messages
 
 ```sh
 cd py
@@ -95,18 +99,26 @@ pdm install
 pdm run python producer.py
 ```
 
-start the celery workers
+#### workers
 
 ```sh
 pdm run celery -A proj worker -l INFO -Q default
 pdm run celery -A proj worker -l INFO -Q slow --prefetch-multiplier=1 --concurrency=1
 ```
 
-start the flower monitoring
+#### monitor
 
 ```sh
 pdm run celery -A proj flower
 ```
+
+#### restart
+
+- `Warm shutdown`
+  - wait for tasks to complete
+- `Cold shutdown`
+  - terminate ASAP
+  - Restoring unacknowledged message(s)
 
 ## cleanup
 
