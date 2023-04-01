@@ -101,6 +101,12 @@ start the celery workers
 pdm run celery -A proj worker -l INFO
 ```
 
+start the flower monitoring
+
+```sh
+pdm run celery -A proj flower
+```
+
 ## cleanup
 
 tl;dr: `bash scripts/down.sh`
